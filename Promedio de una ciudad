@@ -1,0 +1,25 @@
+# Definición de la función para calcular el promedio de temperatura
+def calcular_promedio_temperatura(datos_temperatura):
+    """
+    Calcula la temperatura promedio de cada ciudad.
+    :param datos_temperatura: Diccionario donde las claves son nombres de ciudades y los valores son listas de temperaturas semanales.
+    :return: Diccionario con las ciudades y sus temperaturas promedio.
+    """
+    promedios = {}
+    for ciudad, temperaturas in datos_temperatura.items():
+        promedios[ciudad] = sum(temperaturas) / len(temperaturas)
+    return promedios
+
+# Datos de ejemplo: Temperaturas en 3 ciudades durante 4 semanas
+datos = {
+    "Quito": [18, 20, 19, 21],
+    "Guayaquil": [28, 30, 29, 27],
+    "Cuenca": [15, 17, 16, 14]
+}
+
+# Cálculo del promedio de temperatura por ciudad
+promedios = calcular_promedio_temperatura(datos)
+
+# Impresión de resultados
+for ciudad, promedio in promedios.items():
+    print(f"La temperatura promedio en {ciudad} es {promedio:.2f}°C")
